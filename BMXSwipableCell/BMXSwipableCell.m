@@ -84,7 +84,9 @@ static const CGFloat kDefaultUITableViewDeleteControlWidth = 47;
 }
 
 - (void)dealloc
-{   
+{
+    _scrollView.delegate = nil;
+    _scrollView = nil;
     [[NSNotificationCenter defaultCenter] removeObserver: self
                                                     name: BMXSwipableCellEnclosingTableViewDidBeginScrollingNotification
                                                   object: nil];
